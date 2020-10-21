@@ -1,0 +1,8 @@
+
+a.o:     formato del fichero elf64-x86-64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <.text>:
+   0:	f4                   	hlt    
