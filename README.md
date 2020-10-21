@@ -25,5 +25,16 @@ El firmware de la bios tan solo recoge estos primeros 512 bytes que forman parte
 
 El desensamblado de main.o dara lugar a 3.txt repitiendo el comando objdump asi como el del nuevo main.img dara lugar a 4.txt con el anterior comando hd
 
+Mas codigo usado en main.S
+
+    .code16: tells GAS to output 16-bit code
+
+    cli: disable software interrupts. Those could make the processor start running again after the hlt
+
+    int $0x10: does a BIOS call. This is what prints the characters one by one.
+
+The important link flags are:
+
+    --oformat binary: output raw binary assembly code, don't wrap it inside an ELF file as is the case for regular userland executables.
 
 
