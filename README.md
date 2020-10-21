@@ -23,3 +23,7 @@ El argumento %509s escribe 509 espacios o 20 en ASCII para llegar hasta el byte 
 \125\252 en octal es 55 y AA en hexadecimal que son los dos bytes magicos 511 y 512 que la BIOS interpretara como unidad arrancable
 El firmware de la bios tan solo recoge estos primeros 512 bytes que forman parte del primer sector MBR y los carga en la RAM apuntando al primer byte
 
+El desensamblado de main.o dara lugar a 3.txt repitiendo el comando objdump asi como el del nuevo main.img dara lugar a 4.txt con el anterior comando hd
+
+
+
