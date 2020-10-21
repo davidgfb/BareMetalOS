@@ -11,3 +11,5 @@ echo hlt > a.S <br>
 as -o a.o a.S <br>
 objdump -S a.o <br>
 
+Binutils incluye los siguientes comandos: as - ensamblador 
+
