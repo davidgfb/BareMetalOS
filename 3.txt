@@ -1,0 +1,45 @@
+
+main.o:     formato del fichero elf64-x86-64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <_start>:
+.code16
+.global _start
+_start:
+    cli
+   0:	fa                   	cli    
+    xor %ax, %ax
+   1:	31 c0                	xor    %eax,%eax
+    mov %ax, %ds
+   3:	8e d8                	mov    %eax,%ds
+    mov $msg, %si
+   5:	be 00 00 b4 0e       	mov    $0xeb40000,%esi
+
+000000000000000a <loop>:
+    mov $0x0e, %ah
+loop:
+    lodsb
+   a:	ac                   	lods   %ds:(%rsi),%al
+    or %al, %al
+   b:	08 c0                	or     %al,%al
+    jz halt
+   d:	74 04                	je     13 <halt>
+    int $0x10
+   f:	cd 10                	int    $0x10
+    jmp loop
+  11:	eb f7                	jmp    a <loop>
+
+0000000000000013 <halt>:
+halt:
+    hlt
+  13:	f4                   	hlt    
+
+0000000000000014 <msg>:
+  14:	68 65 6c 6c 6f       	pushq  $0x6f6c6c65
+  19:	20 77 6f             	and    %dh,0x6f(%rdi)
+  1c:	72 6c                	jb     8a <msg+0x76>
+  1e:	64 00 00             	add    %al,%fs:(%rax)
+	...
+ 1fd:	00 55 aa             	add    %dl,-0x56(%rbp)
