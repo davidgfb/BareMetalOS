@@ -13,3 +13,13 @@ objdump -S a.o <br>
 
 Binutils incluye los siguientes comandos: as - ensamblador 
 
+El comando 
+
+hd main.img
+
+da como salida el archivo 2.txt donde se aprecian los primeros 512 bytes que cargara el firmware de la BIOS
+
+El argumento %509s escribe 509 espacios o 20 en ASCII para llegar hasta el byte 510 
+\125\252 en octal es 55 y AA en hexadecimal que son los dos bytes magicos 511 y 512 que la BIOS interpretara como unidad arrancable
+El firmware de la bios tan solo recoge estos primeros 512 bytes que forman parte del primer sector MBR y los carga en la RAM apuntando al primer byte
+
