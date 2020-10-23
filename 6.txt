@@ -1,0 +1,49 @@
+
+main.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+void main(void) {
+   0:	f3 0f 1e fb          	endbr32 
+   4:	66 55                	push   %bp
+   6:	66 89 e5             	mov    %sp,%bp
+   9:	66 83 ec 10          	sub    $0x10,%sp
+    int i;
+    char s[] = {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
+   d:	67 66 c7 45 f1 68 65 	movw   $0x6568,-0xf(%di)
+  14:	6c                   	insb   (%dx),%es:(%edi)
+  15:	6c                   	insb   (%dx),%es:(%edi)
+  16:	67 66 c7 45 f5 6f 20 	movw   $0x206f,-0xb(%di)
+  1d:	77 6f                	ja     8e <main+0x8e>
+  1f:	67 c7 45 f9 72 6c 67 	movl   $0xc6676c72,-0x7(%di)
+  26:	c6 
+  27:	45                   	inc    %ebp
+  28:	fb                   	sti    
+  29:	64 67 66 c7 45 fc 00 	movw   $0x0,%fs:-0x4(%di)
+  30:	00 
+    for (i = 0; i < sizeof(s); ++i) {
+  31:	00 00                	add    %al,(%eax)
+  33:	eb 21                	jmp    56 <main+0x56>
+        __asm__ (
+            "int $0x10" : : "a" ((0x0e << 8) | s[i])
+  35:	67 66 8d 55 f1       	lea    -0xf(%di),%dx
+  3a:	67 66 8b 45 fc       	mov    -0x4(%di),%ax
+  3f:	66 01 d0             	add    %dx,%ax
+  42:	67 66 0f b6 00       	movzbw (%bx,%si),%ax
+  47:	66 0f be c0          	movsbw %al,%ax
+  4b:	80 cc 0e             	or     $0xe,%ah
+        __asm__ (
+  4e:	cd 10                	int    $0x10
+    for (i = 0; i < sizeof(s); ++i) {
+  50:	67 66 83 45 fc 01    	addw   $0x1,-0x4(%di)
+  56:	67 66 8b 45 fc       	mov    -0x4(%di),%ax
+  5b:	66 83 f8 0a          	cmp    $0xa,%ax
+  5f:	76 d4                	jbe    35 <main+0x35>
+        );
+    }
+    while (1) {
+        __asm__ ("hlt");
+  61:	f4                   	hlt    
+  62:	eb fd                	jmp    61 <main+0x61>
