@@ -36,7 +36,8 @@ Mas codigo usado en main.S
 The important link flags are:
 
     --oformat binary: output raw binary assembly code, don't wrap it inside an ELF file as is the case for regular userland executables.
-    
+   
+En C
 5.txt es el resultado de hacer hd a main.img construido desde main.c 
-
+6.txt es el resultado de hacer objdump a main.o desde main.c
 
