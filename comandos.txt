@@ -1,0 +1,4 @@
+﻿sudo apt install binutils
+sudo apt install gcc
+sudo apt-get update
+sudo apt install qemu-system-x86
